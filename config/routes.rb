@@ -1,17 +1,28 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+
   get 'posts/index'
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
   post "posts/create" => "posts#create"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
-  post "posts/:id/destroy" => "posts#destroy"  
+  post "posts/:id/destroy" => "posts#destroy"
 
   get "/" => "home#top"
   get "about" => "home#about"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  post "logout" => "users#logout"
+  post "login" => "users#login"
+  get "login" => "users#login_form"
+  post "users/:id/update" => "users#update"
+  get "users/:id/edit" => "users#edit"
+  post "users/create" => "users#create"
+  get "/signup" => "users#new"
+  get "users/:id" => "users#show"
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
